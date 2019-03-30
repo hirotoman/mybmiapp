@@ -11,8 +11,31 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
+    <script src="mybmi.js" charset="utf-8">
+        // function onButtonClick() {
+        //   target = document.getElementById("result");
+        //   target.innerText = document.forms.calculation.weightInput.value;
+        //   //target.innerText = document.id_form1.id_textBox1.value;//これでもOK
+        // }
+
+        var myfunc = function () {
+      console.log("Hello world!");
+    }
+  </script>
+
+    </script>
+
+
+
+    <!-- <script>
+      var bmi;
+      bmi = weightInput/heightInput*heightInput
+    </script> -->
     <title>My BMI App</title>
   </head>
+
+
+
   <body>
     <div class="text-secondary text-center py-5">
       <h1 class="md-4">My BMI App</h1>
@@ -38,7 +61,8 @@
             </button>
           </div>
           <div class="modal-body">
-            <p>体重と身長の関係から算出される、ヒトの肥満度を表す体格指数である。一般にBMI (Body Mass Index) と呼ばれる。</p>
+            <p>体重と身長の関係から算出される、ヒトの肥満度を表す体格指数である。一般にBMI (Body Mass Index) と呼ばれる。<br>理想体重は、BMI=22</p>
+            <p> BMI = 体重(kg) / 身長(m) * 身長(m) </p>
             <table class="table">
               <thead>
                 <tr>
@@ -75,6 +99,7 @@
     </div>
 
 <!--     自分で書いた入力フォームここから -->
+
     <!-- <p>体重（kg）</p>
     <form action="xxxx" method="post">
       <input type="tel">
@@ -85,29 +110,40 @@
     <form action="xxxx" method="post">
       <input type="tel">
     </form> -->
-<!--     自分で書いた入力フォームここまで -->
+
+<!--自分で書いた入力フォームここまで -->
 
 
-<!--     bootstrapのフォームテンプレート -->
-    <form action="sent.php" method="post">
+
+<!--bootstrapのフォームテンプレート -->
+
+    <form action="result.html" method="post" name="calculation" id="calculation">
       <div class="form-group col-12">
         <label for="weightInput">体重（kg）</label>
-        <input type="tel" name="weight" class="form-control" id="weightInput" aria-describedby="emailHelp" placeholder="体重を入力してください">
-        <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+        <input type="text" name="weight" class="form-control" id="weightInput" aria-describedby="emailHelp" placeholder="体重を入力してください">
       </div>
+
       <div class="form-group col-12">
         <label for="heightInput">身長（m）</label>
-        <input type="tel" name="height" class="form-control" id="heightInput" placeholder="身長を入力してください">
-        <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+        <input type="text" name="height" class="form-control" id="heightInput" placeholder="身長を入力してください">
       </div>
-      <!-- <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-      </div> -->
+
+
       <div class="text-center">
-      <button type="submit" class="btn btn-primary">計算する</button>
+      <a href="result.html" title=""><button type="submit" class="btn btn-primary">計算する</button></a>
+      <!-- <input type="button" value="計算する" onclick="myfunc()" > -->
+      <!-- <input type="<button type="submit"></button>
+      <a class="btn btn-primary" href="result.html" role="button">計算する</a> -->
       </div>
     </form>
+
+
+    <div id="result" class="text-center py-5">
+      <p>あなたのBMIは○○○です</p>
+      <p>あなたは○○体型です</p>
+    </div>
+
+
 </div>
 
 
