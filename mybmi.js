@@ -23,10 +23,12 @@ function onButtonClick() {
     }
 
 
-    //BMIのスコアを定義
+    //BMIのスコアとメッセージを定義
     var score = weight / (height * height);
     var message = '';
     var className = '';
+
+    //コンソールで軽くデバックするときはこんな感じで出力してみる↓
     console.log(score);
 
     //BMIのスコアによって結果を出し分ける
@@ -49,7 +51,7 @@ function onButtonClick() {
     var messageSpan = document.getElementById('message');
     messageSpan.innerText = message;
 
-    //結果表示エリア
+    //結果表示エリアの変数定義
     var resultDiv = document.getElementById('result');
     resultDiv.classList.remove('high', 'middle', 'low');
     resultDiv.classList.add(className);
@@ -57,8 +59,9 @@ function onButtonClick() {
     console.log(message);
 }
 
-var btn = document.getElementById("btn");
-btn.addEventListener('click', onButtonClick)
+    //ボタンをクリックしたタイミングでイベント
+    var btn = document.getElementById("btn");
+    btn.addEventListener('click', onButtonClick)
 
 
 console.log("hello")
