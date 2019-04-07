@@ -1,30 +1,64 @@
-//alert("Hello World!")
-
-
- <script type="text/javascript" language="javascript">
+// alert("Hello World!")
 
 
 //フォームに入力した情報を計算
-    function onButtonClick() {
-    	target = document.getElementById("result");
-    	target.innerText = document.forms.id_calculation.id_textBox1.value;
-    	//target.innerText = document.id_form1.id_textBox1.value;//これでもOK
-        	}
+function onButtonClick() {
+    console.log('clicked');
+
+    //体重のフォームに入力した値を取得
+    var weightInput = document.getElementById("weightInput");
+    console.log(weightInput.value);
 
 
-//BMIのスコアを定義
-    var score = 0;
+    //身長のフォームに入力した値を取得
+    var heightInput = document.getElementById("heightInput");
+    console.log(heightInput.value);
+    var height = heightInput.value
+    var weight = weightInput.value
 
-//BMIのスコアによって結果を出し分ける
-    if (score >= 25) {
-    document.write(“あなたは肥満体型です。”);
-    } else if (score >= 18.5) {
-    document.write(“あなたは標準体型です。”);
-    } else {
-    document.write( “あなたは痩せ型です。”);
+    //身長が空欄の場合エラーを表示
+    if  (height == '') {
+        alert('身長を入力してください');
+        return;
     }
 
 
+    //BMIのスコアを定義
+    var score = weight / (height * height);
+    var message = '';
+    var className = '';
+    console.log(score);
 
-  </script>
+    //BMIのスコアによって結果を出し分ける
+    if (score >= 25) {
+        message  = "肥満体型";
+        className = 'high';
+    } else if (score >= 18.5) {
+        message  = "標準体型";
+        className = 'middle';
+    } else {
+        message  = "痩せ型";
+        className = 'low';
+    }
 
+    //スコアを取得して小数点第二位まで表示
+    var scoreSpan = document.getElementById('score');
+    scoreSpan.innerText = score.toFixed(2);
+
+    //スコアによってメッセージを表示
+    var messageSpan = document.getElementById('message');
+    messageSpan.innerText = message;
+
+    //結果表示エリア
+    var resultDiv = document.getElementById('result');
+    resultDiv.classList.remove('high', 'middle', 'low');
+    resultDiv.classList.add(className);
+
+    console.log(message);
+}
+
+var btn = document.getElementById("btn");
+btn.addEventListener('click', onButtonClick)
+
+
+console.log("hello")
